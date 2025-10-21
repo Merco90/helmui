@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Təhlükəsizlik - config faylını qorumaq
+    <Files "config.php">
+        Order Allow,Deny
+        Deny from all
+    </Files>
+    
+    # Cache fayllarını qorumaq
+    <Files "*.cache">
+        Order Allow,Deny
+        Deny from all
+    </Files>
+    
+    # PHP settings
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Browser cache control
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=86400"
+    </FilesMatch>
+</IfModule>

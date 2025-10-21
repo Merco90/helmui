@@ -1,0 +1,14 @@
+{
+    "name": "helm/helm-repo-manager",
+    "description": "Helm repository management web interface",
+    "type": "project",
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "files": ["config.php"]
+    },
+    "config": {
+        "platform-check": false
+    }
+}
